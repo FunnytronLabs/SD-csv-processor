@@ -14,7 +14,7 @@ SD_csv_processor::SD_csv_processor(unsigned int maximum_cell_length)
   else memory_allocation_failure = true;
 }
 
-unsigned int SD_csv_processor::analyse_cell(File SD_file, unsigned long file_position)
+unsigned int SD_csv_processor::extract_value(File SD_file, unsigned long file_position)
 {
   char current_character;
   unsigned int data_length = 0;
