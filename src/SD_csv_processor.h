@@ -27,7 +27,7 @@ class SD_csv_processor
 
   public:
     SD_csv_processor(unsigned int maximum_cell_length);
-    unsigned int analyse_cell(File SD_file, unsigned long file_position);
+    unsigned int extract_value(File SD_file, unsigned long file_position);
     unsigned long seek_cell(File SD_file, unsigned int row, unsigned int column); // returns position in file
     unsigned int remove_character(char trim_character, char *cell_pointer, unsigned int cell_length); // does not need SD card
 };
