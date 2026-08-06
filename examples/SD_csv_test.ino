@@ -45,54 +45,54 @@ void setup() {
 
     unsigned long current_file_position = 0;
 
-    unsigned int data_length = fileElementProcessor.analyse_cell(file, current_file_position);
+    unsigned int data_length = fileElementProcessor.extract_value(file, current_file_position);
     Serial.printf("%d > ", data_length);
     for(int i=0;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
     Serial.print(" : ");
 
     current_file_position += (++data_length);
-    data_length = fileElementProcessor.analyse_cell(file, current_file_position);
+    data_length = fileElementProcessor.extract_value(file, current_file_position);
     Serial.printf("%d > ", data_length);
     for(int i=0;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
     Serial.println();
 
     current_file_position += (++data_length);
-    data_length = fileElementProcessor.analyse_cell(file, current_file_position);
+    data_length = fileElementProcessor.extract_value(file, current_file_position);
     Serial.printf("%d > ", data_length);
     if(fileElementProcessor.cell_buffer[0] == '\n') for(int i=1;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
     else for(int i=0;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
     Serial.print(" : ");
 
     current_file_position += (++data_length);
-    data_length = fileElementProcessor.analyse_cell(file, current_file_position);
-    Serial.printf("%d > ", data_length);
-    for(int i=0;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
-    Serial.println();
-
-    ////////////////////////////////////////////////////////////////////////////////////
-    current_file_position += (++data_length);
-    data_length = fileElementProcessor.analyse_cell(file, current_file_position);
-    Serial.printf("%d > ", data_length);
-    if(fileElementProcessor.cell_buffer[0] == '\n') for(int i=1;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
-    else for(int i=0;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
-    Serial.print(" : ");
-
-    current_file_position += (++data_length);
-    data_length = fileElementProcessor.analyse_cell(file, current_file_position);
+    data_length = fileElementProcessor.extract_value(file, current_file_position);
     Serial.printf("%d > ", data_length);
     for(int i=0;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
     Serial.println();
 
     ////////////////////////////////////////////////////////////////////////////////////
     current_file_position += (++data_length);
-    data_length = fileElementProcessor.analyse_cell(file, current_file_position);
+    data_length = fileElementProcessor.extract_value(file, current_file_position);
     Serial.printf("%d > ", data_length);
     if(fileElementProcessor.cell_buffer[0] == '\n') for(int i=1;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
     else for(int i=0;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
     Serial.print(" : ");
 
     current_file_position += (++data_length);
-    data_length = fileElementProcessor.analyse_cell(file, current_file_position);
+    data_length = fileElementProcessor.extract_value(file, current_file_position);
+    Serial.printf("%d > ", data_length);
+    for(int i=0;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
+    Serial.println();
+
+    ////////////////////////////////////////////////////////////////////////////////////
+    current_file_position += (++data_length);
+    data_length = fileElementProcessor.extract_value(file, current_file_position);
+    Serial.printf("%d > ", data_length);
+    if(fileElementProcessor.cell_buffer[0] == '\n') for(int i=1;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
+    else for(int i=0;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
+    Serial.print(" : ");
+
+    current_file_position += (++data_length);
+    data_length = fileElementProcessor.extract_value(file, current_file_position);
     Serial.printf("%d > ", data_length);
     for(int i=0;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
     Serial.println();
@@ -139,7 +139,7 @@ void setup() {
 
     Serial.println("*** COORDINATE (1,1): ");
     unsigned long position_in_file = fileElementProcessor.seek_cell(file, 1, 1);
-    data_length = fileElementProcessor.analyse_cell(file, position_in_file);
+    data_length = fileElementProcessor.extract_value(file, position_in_file);
     Serial.printf("%d > ", data_length);
     if(fileElementProcessor.cell_buffer[0] == '\n') for(int i=1;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
     else for(int i=0;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
@@ -147,7 +147,7 @@ void setup() {
 
     Serial.println("*** COORDINATE (0,1): ");
     position_in_file = fileElementProcessor.seek_cell(file, 0, 1);
-    data_length = fileElementProcessor.analyse_cell(file, position_in_file);
+    data_length = fileElementProcessor.extract_value(file, position_in_file);
     Serial.printf("%d > ", data_length);
     if(fileElementProcessor.cell_buffer[0] == '\n') for(int i=1;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
     else for(int i=0;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
@@ -155,7 +155,7 @@ void setup() {
 
     Serial.println("*** COORDINATE (0,0): ");
     position_in_file = fileElementProcessor.seek_cell(file, 0, 0);
-    data_length = fileElementProcessor.analyse_cell(file, position_in_file);
+    data_length = fileElementProcessor.extract_value(file, position_in_file);
     Serial.printf("%d > ", data_length);
     if(fileElementProcessor.cell_buffer[0] == '\n') for(int i=1;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
     else for(int i=0;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
@@ -163,7 +163,7 @@ void setup() {
 
     Serial.println("*** COORDINATE (1,0): ");
     position_in_file = fileElementProcessor.seek_cell(file, 1, 0);
-    data_length = fileElementProcessor.analyse_cell(file, position_in_file);
+    data_length = fileElementProcessor.extract_value(file, position_in_file);
     Serial.printf("%d > ", data_length);
     if(fileElementProcessor.cell_buffer[0] == '\n') for(int i=1;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
     else for(int i=0;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
@@ -171,7 +171,7 @@ void setup() {
 
     Serial.println("*** COORDINATE (3,0): ");
     position_in_file = fileElementProcessor.seek_cell(file, 3, 0);
-    data_length = fileElementProcessor.analyse_cell(file, position_in_file);
+    data_length = fileElementProcessor.extract_value(file, position_in_file);
     Serial.printf("%d > ", data_length);
     if(fileElementProcessor.cell_buffer[0] == '\n') for(int i=1;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
     else for(int i=0;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
@@ -179,7 +179,7 @@ void setup() {
 
     Serial.println("*** COORDINATE (2,1): ");
     position_in_file = fileElementProcessor.seek_cell(file, 2, 1);
-    data_length = fileElementProcessor.analyse_cell(file, position_in_file);
+    data_length = fileElementProcessor.extract_value(file, position_in_file);
     Serial.printf("%d > ", data_length);
     if(fileElementProcessor.cell_buffer[0] == '\n') for(int i=1;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
     else for(int i=0;i<data_length;i++) Serial.print(fileElementProcessor.cell_buffer[i]);
